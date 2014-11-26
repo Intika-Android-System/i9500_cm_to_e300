@@ -1,0 +1,15 @@
+Author: bestmjh47 (http://blog.naver.com/bestmjh47)
+Requirements: Java
+What-is-this? : This ports i9500 CM-11-based(includeing MIUI) rom to Korean Octa-core processor Galaxy S4. This program is now at Beta version so it may contain some bugs. Use at your own risk!
+
+How to use: 1. Open terminal. 2. run port.sh
+            3. Teleservice.apk : decompile with apktool. And enable LTE option in bools.xml. Then, recompile and copy the output to port/system/priv-app.
+
+
+Credits: boot image multiboot ramdisk part: Grarak
+
+Known issue: Nothing. Call volume adjustment doesn't work.
+         
+What you should know: You can build any of your favorite rom with this "Port Tool" for 'ONLY' personal use. You CANNOT distribute built rom to other communities or forums. And please report bugs to bitbucket or my blog. Donations are always welcome :D 
+
+Paypal: bestmjh47@naver.com
