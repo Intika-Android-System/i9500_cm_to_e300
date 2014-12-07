@@ -33,6 +33,7 @@ zip -r CM.zip META-INF file_contexts recovery system boot.img
 mv CM.zip ../CM.zip
 cd ../
 rm -rf port
+rm -rf ril
 echo Done! Modifiy ROM.zip to your favorite name!
 read
 
