@@ -804,8 +804,8 @@
 
     invoke-static {v2, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_34
-    .catch Ljava/io/FileNotFoundException; {:try_start_21 .. :try_end_34} :catch_209
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_21 .. :try_end_34} :catch_204
+    .catch Ljava/io/FileNotFoundException; {:try_start_21 .. :try_end_34} :catch_20c
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_21 .. :try_end_34} :catch_207
 
     move-object/from16 v15, v16
 
@@ -1034,7 +1034,7 @@
     :try_start_f8
     invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
     :try_end_fb
-    .catch Ljava/io/IOException; {:try_start_f8 .. :try_end_fb} :catch_15c
+    .catch Ljava/io/IOException; {:try_start_f8 .. :try_end_fb} :catch_202
 
     .line 236
     .end local v11           #name:Ljava/lang/String;
@@ -1194,13 +1194,13 @@
     goto :goto_fb
 
     .line 232
-    .end local v9           #e:Ljava/lang/Exception;
     :catch_15c
     move-exception v2
 
     goto :goto_fb
 
     .line 201
+    .end local v9           #e:Ljava/lang/Exception;
     .restart local v10       #id:I
     .restart local v11       #name:Ljava/lang/String;
     .restart local v12       #parsedEriEntries:I
@@ -1273,9 +1273,9 @@
     :try_start_190
     invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
     :try_end_193
-    .catch Ljava/io/IOException; {:try_start_190 .. :try_end_193} :catch_202
+    .catch Ljava/io/IOException; {:try_start_190 .. :try_end_193} :catch_205
 
-    .line 225
+    .line 234
     :cond_193
     :goto_193
     throw v2
@@ -1424,10 +1424,15 @@
     .end local v6           #eriText:Ljava/lang/String;
     .end local v7           #callPromptId:I
     .end local v8           #alertId:I
-    .end local v11           #name:Ljava/lang/String;
-    .end local v12           #parsedEriEntries:I
     .end local v13           #parser:Lorg/xmlpull/v1/XmlPullParser;
     :catch_202
+    move-exception v2
+
+    goto/16 :goto_fb
+
+    .end local v11           #name:Ljava/lang/String;
+    .end local v12           #parsedEriEntries:I
+    :catch_205
     move-exception v18
 
     goto :goto_193
@@ -1436,7 +1441,7 @@
     .end local v15           #stream:Ljava/io/FileInputStream;
     .restart local v13       #parser:Lorg/xmlpull/v1/XmlPullParser;
     .restart local v16       #stream:Ljava/io/FileInputStream;
-    :catch_204
+    :catch_207
     move-exception v9
 
     move-object/from16 v15, v16
@@ -1448,7 +1453,7 @@
     .line 164
     .end local v15           #stream:Ljava/io/FileInputStream;
     .restart local v16       #stream:Ljava/io/FileInputStream;
-    :catch_209
+    :catch_20c
     move-exception v9
 
     move-object/from16 v15, v16

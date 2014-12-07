@@ -3471,7 +3471,7 @@
     .line 792
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_1fa
+    packed-switch v0, :pswitch_data_1f8
 
     .line 923
     :pswitch_8
@@ -3835,16 +3835,11 @@
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 873
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    if-eqz v0, :cond_47
-
-    .line 875
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v6, Landroid/os/AsyncResult;
 
-    .line 876
+    .line 874
     .restart local v6       #ar:Landroid/os/AsyncResult;
     if-eqz v6, :cond_47
 
@@ -3862,7 +3857,7 @@
 
     if-eqz v0, :cond_47
 
-    .line 878
+    .line 876
     iget-object v0, v6, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v0, [I
@@ -3871,11 +3866,16 @@
 
     check-cast v9, [I
 
-    .line 879
+    .line 877
     .local v9, sendResult:[I
+    array-length v0, v9
+
+    if-eqz v0, :cond_47
+
+    .line 879
     aget v0, v9, v10
 
-    sparse-switch v0, :sswitch_data_23a
+    sparse-switch v0, :sswitch_data_238
 
     .line 881
     const-string v0, "SMS SEND GENERIC FAIL"
@@ -3891,7 +3891,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/cat/CallControlResult;->CALL_CONTROL_NOT_ALLOWED:Lcom/android/internal/telephony/cat/CallControlResult;
 
-    if-ne v0, v1, :cond_16d
+    if-ne v0, v1, :cond_16c
 
     .line 884
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
@@ -3909,7 +3909,7 @@
     goto/16 :goto_47
 
     .line 887
-    :cond_16d
+    :cond_16c
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
 
     iget-object v1, v0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mCmdDet:Lcom/android/internal/telephony/cat/CommandDetails;
@@ -3927,7 +3927,7 @@
     goto/16 :goto_47
 
     .line 891
-    :sswitch_17b
+    :sswitch_17a
     const-string v0, "SMS SEND OK"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3941,7 +3941,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/cat/CallControlResult;->CALL_CONTROL_NOT_ALLOWED:Lcom/android/internal/telephony/cat/CallControlResult;
 
-    if-ne v0, v1, :cond_197
+    if-ne v0, v1, :cond_196
 
     .line 894
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
@@ -3959,7 +3959,7 @@
     goto/16 :goto_47
 
     .line 897
-    :cond_197
+    :cond_196
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
 
     iget-object v1, v0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mCmdDet:Lcom/android/internal/telephony/cat/CommandDetails;
@@ -3977,7 +3977,7 @@
     goto/16 :goto_47
 
     .line 900
-    :sswitch_1a5
+    :sswitch_1a4
     const-string v0, "SMS SEND FAIL - MEMORY NOT AVAILABLE"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
@@ -3991,7 +3991,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/cat/CallControlResult;->CALL_CONTROL_NOT_ALLOWED:Lcom/android/internal/telephony/cat/CallControlResult;
 
-    if-ne v0, v1, :cond_1c1
+    if-ne v0, v1, :cond_1c0
 
     .line 903
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
@@ -4009,7 +4009,7 @@
     goto/16 :goto_47
 
     .line 906
-    :cond_1c1
+    :cond_1c0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
 
     iget-object v1, v0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mCmdDet:Lcom/android/internal/telephony/cat/CommandDetails;
@@ -4027,7 +4027,7 @@
     goto/16 :goto_47
 
     .line 910
-    :sswitch_1cf
+    :sswitch_1ce
     const-string v0, "SMS SEND FAIL RETRY"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
@@ -4041,7 +4041,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/cat/CallControlResult;->CALL_CONTROL_NOT_ALLOWED:Lcom/android/internal/telephony/cat/CallControlResult;
 
-    if-ne v0, v1, :cond_1eb
+    if-ne v0, v1, :cond_1ea
 
     .line 913
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
@@ -4059,7 +4059,7 @@
     goto/16 :goto_47
 
     .line 916
-    :cond_1eb
+    :cond_1ea
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CatService;->mCurrntCmd:Lcom/android/internal/telephony/cat/CatCmdMessage;
 
     iget-object v1, v0, Lcom/android/internal/telephony/cat/CatCmdMessage;->mCmdDet:Lcom/android/internal/telephony/cat/CommandDetails;
@@ -4077,9 +4077,7 @@
     goto/16 :goto_47
 
     .line 792
-    nop
-
-    :pswitch_data_1fa
+    :pswitch_data_1f8
     .packed-switch 0x1
         :pswitch_23
         :pswitch_23
@@ -4114,11 +4112,11 @@
     .end packed-switch
 
     .line 879
-    :sswitch_data_23a
+    :sswitch_data_238
     .sparse-switch
-        0x0 -> :sswitch_17b
-        0x8016 -> :sswitch_1a5
-        0x802a -> :sswitch_1cf
+        0x0 -> :sswitch_17a
+        0x8016 -> :sswitch_1a4
+        0x802a -> :sswitch_1ce
     .end sparse-switch
 .end method
 

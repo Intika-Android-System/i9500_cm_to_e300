@@ -24,13 +24,13 @@
     .parameter "context"
 
     .prologue
-    .line 445
+    .line 448
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
 
-    .line 446
+    .line 449
     iput-object p1, p0, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->mContext:Landroid/content/Context;
 
-    .line 447
+    .line 450
     return-void
 .end method
 
@@ -39,14 +39,14 @@
     .parameter "packageName"
 
     .prologue
-    .line 465
+    .line 468
     iget-object v2, p0, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 467
+    .line 470
     .local v1, packageManager:Landroid/content/pm/PackageManager;
     iget-object v2, p0, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->mContext:Landroid/content/Context;
 
@@ -56,15 +56,15 @@
 
     move-result-object v0
 
-    .line 468
+    .line 471
     .local v0, componentName:Landroid/content/ComponentName;
     if-eqz v0, :cond_12
 
-    .line 469
+    .line 472
     #calls: Lcom/android/internal/telephony/SmsApplication;->configurePreferredActivity(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)V
     invoke-static {v1, v0}, Lcom/android/internal/telephony/SmsApplication;->access$000(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)V
 
-    .line 471
+    .line 474
     :cond_12
     return-void
 .end method
@@ -77,10 +77,10 @@
     .parameter "reason"
 
     .prologue
-    .line 456
+    .line 459
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->onPackageChanged(Ljava/lang/String;)V
 
-    .line 457
+    .line 460
     return-void
 .end method
 
@@ -90,10 +90,10 @@
     .parameter "reason"
 
     .prologue
-    .line 451
+    .line 454
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->onPackageChanged(Ljava/lang/String;)V
 
-    .line 452
+    .line 455
     return-void
 .end method
 
@@ -102,9 +102,9 @@
     .parameter "packageName"
 
     .prologue
-    .line 461
+    .line 464
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/SmsApplication$SmsPackageMonitor;->onPackageChanged(Ljava/lang/String;)V
 
-    .line 462
+    .line 465
     return-void
 .end method

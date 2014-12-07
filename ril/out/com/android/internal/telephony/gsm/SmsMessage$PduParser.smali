@@ -679,7 +679,7 @@
 
     iget v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
 
-    const-string v4, "EUC-KR"
+    const-string v4, "KSC5601"
 
     invoke-direct {v1, v2, v3, p1, v4}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
     :try_end_b

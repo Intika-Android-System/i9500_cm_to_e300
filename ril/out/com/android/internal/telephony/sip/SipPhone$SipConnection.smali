@@ -550,8 +550,8 @@
     .line 943
     invoke-virtual {v1}, Landroid/net/sip/SipAudioCall;->endCall()V
     :try_end_52
-    .catchall {:try_start_47 .. :try_end_52} :catchall_87
-    .catch Landroid/net/sip/SipException; {:try_start_47 .. :try_end_52} :catch_6d
+    .catchall {:try_start_47 .. :try_end_52} :catchall_84
+    .catch Landroid/net/sip/SipException; {:try_start_47 .. :try_end_52} :catch_6a
 
     .line 948
     :cond_52
@@ -568,7 +568,7 @@
 
     sget-object v5, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v2, v5, :cond_6a
+    if-ne v2, v5, :cond_9c
 
     :cond_60
     sget-object v2, Lcom/android/internal/telephony/Connection$DisconnectCause;->INCOMING_REJECTED:Lcom/android/internal/telephony/Connection$DisconnectCause;
@@ -591,24 +591,13 @@
 
     throw v2
 
-    .line 948
-    .restart local v1       #sipAudioCall:Landroid/net/sip/SipAudioCall;
-    :cond_6a
-    :try_start_6a
-    sget-object v2, Lcom/android/internal/telephony/Connection$DisconnectCause;->LOCAL:Lcom/android/internal/telephony/Connection$DisconnectCause;
-    :try_end_6c
-    .catchall {:try_start_6a .. :try_end_6c} :catchall_67
-
-    goto :goto_62
-
     .line 945
-    .end local v1           #sipAudioCall:Landroid/net/sip/SipAudioCall;
-    :catch_6d
+    :catch_6a
     move-exception v0
 
     .line 946
     .local v0, e:Landroid/net/sip/SipException;
-    :try_start_6e
+    :try_start_6b
     new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -632,43 +621,49 @@
     invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_87
-    .catchall {:try_start_6e .. :try_end_87} :catchall_87
+    :try_end_84
+    .catchall {:try_start_6b .. :try_end_84} :catchall_84
 
     .line 948
     .end local v0           #e:Landroid/net/sip/SipException;
-    :catchall_87
+    :catchall_84
     move-exception v2
 
-    :try_start_88
+    :try_start_85
     iget-object v5, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mAdapter:Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;
 
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mState:Lcom/android/internal/telephony/Call$State;
 
     sget-object v6, Lcom/android/internal/telephony/Call$State;->INCOMING:Lcom/android/internal/telephony/Call$State;
 
-    if-eq v3, v6, :cond_96
+    if-eq v3, v6, :cond_93
 
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mState:Lcom/android/internal/telephony/Call$State;
 
     sget-object v6, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v3, v6, :cond_9c
+    if-ne v3, v6, :cond_99
 
-    :cond_96
+    :cond_93
     sget-object v3, Lcom/android/internal/telephony/Connection$DisconnectCause;->INCOMING_REJECTED:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
-    :goto_98
+    :goto_95
     invoke-virtual {v5, v3}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onCallEnded(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
     throw v2
 
-    :cond_9c
+    :cond_99
     sget-object v3, Lcom/android/internal/telephony/Connection$DisconnectCause;->LOCAL:Lcom/android/internal/telephony/Connection$DisconnectCause;
-    :try_end_9e
-    .catchall {:try_start_88 .. :try_end_9e} :catchall_67
 
-    goto :goto_98
+    goto :goto_95
+
+    .restart local v1       #sipAudioCall:Landroid/net/sip/SipAudioCall;
+    :cond_9c
+    sget-object v2, Lcom/android/internal/telephony/Connection$DisconnectCause;->LOCAL:Lcom/android/internal/telephony/Connection$DisconnectCause;
+    :try_end_9e
+    .catchall {:try_start_85 .. :try_end_9e} :catchall_67
+
+    goto :goto_62
 .end method
 
 .method hold()V

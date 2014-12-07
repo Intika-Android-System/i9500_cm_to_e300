@@ -216,7 +216,7 @@
 
     .local v1, i:I
     :goto_9
-    if-ge v1, v6, :cond_2b
+    if-ge v1, v6, :cond_39
 
     .line 1165
     aget-object v5, p0, v1
@@ -231,41 +231,58 @@
 
     aput-object v7, v2, v1
 
-    .line 1167
+    .line 1176
+    aget-object v7, v2, v1
+
+    invoke-virtual {v7}, Landroid/telephony/SmsMessage;->getOriginatingAddress()Ljava/lang/String;
+
+    move-result-object v7
+
+    if-nez v7, :cond_23
+
+    .line 1177
+    invoke-static {v5}, Landroid/telephony/SmsMessage;->createFromPdu([B)Landroid/telephony/SmsMessage;
+
+    move-result-object v7
+
+    aput-object v7, v2, v1
+
+    .line 1179
+    :cond_23
     aget-object v7, v2, v1
 
     invoke-virtual {v7}, Landroid/telephony/SmsMessage;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1168
+    .line 1180
     .local v4, originatingAddress:Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-nez v7, :cond_28
+    if-nez v7, :cond_36
 
-    .line 1169
+    .line 1181
     invoke-static {v4}, Landroid/provider/Telephony$Sms$Intents;->normalizeDigitsOnly(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1170
+    .line 1182
     .local v3, normalized:Ljava/lang/String;
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1164
     .end local v3           #normalized:Ljava/lang/String;
-    :cond_28
+    :cond_36
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_9
 
-    .line 1173
+    .line 1185
     .end local v4           #originatingAddress:Ljava/lang/String;
     .end local v5           #pdu:[B
-    :cond_2b
+    :cond_39
     return-object v0
 .end method
 
@@ -275,7 +292,7 @@
     .parameter "keepNonDigits"
 
     .prologue
-    .line 1182
+    .line 1194
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -284,7 +301,7 @@
 
     invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1183
+    .line 1195
     .local v5, normalizedDigits:Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
@@ -302,7 +319,7 @@
 
     aget-char v1, v0, v3
 
-    .line 1184
+    .line 1196
     .local v1, c:C
     const/16 v6, 0xa
 
@@ -310,32 +327,32 @@
 
     move-result v2
 
-    .line 1185
+    .line 1197
     .local v2, digit:I
     const/4 v6, -0x1
 
     if-eq v2, v6, :cond_22
 
-    .line 1186
+    .line 1198
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1183
+    .line 1195
     :cond_1f
     :goto_1f
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_f
 
-    .line 1187
+    .line 1199
     :cond_22
     if-eqz p1, :cond_1f
 
-    .line 1188
+    .line 1200
     invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1f
 
-    .line 1191
+    .line 1203
     .end local v1           #c:C
     .end local v2           #digit:I
     :cond_28
@@ -347,7 +364,7 @@
     .parameter "number"
 
     .prologue
-    .line 1178
+    .line 1190
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroid/provider/Telephony$Sms$Intents;->normalizeDigits(Ljava/lang/String;Z)Ljava/lang/StringBuilder;

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 998
+    .line 999
     iput-object p1, p0, Lcom/android/internal/telephony/ExtCallManager$ExtCmHandler;->this$0:Lcom/android/internal/telephony/ExtCallManager;
 
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/CallManager$CmHandler;-><init>(Lcom/android/internal/telephony/CallManager;)V
@@ -39,20 +39,20 @@
     .parameter "msg"
 
     .prologue
-    .line 1003
+    .line 1004
     iget v3, p1, Landroid/os/Message;->what:I
 
     sparse-switch v3, :sswitch_data_6a
 
-    .line 1023
+    .line 1024
     invoke-super {p0, p1}, Lcom/android/internal/telephony/CallManager$CmHandler;->handleMessage(Landroid/os/Message;)V
 
-    .line 1025
+    .line 1026
     :goto_8
     :sswitch_8
     return-void
 
-    .line 1006
+    .line 1007
     :sswitch_9
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -62,7 +62,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Connection;
 
-    .line 1007
+    .line 1008
     .local v0, c:Lcom/android/internal/telephony/Connection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/Connection;->getCall()Lcom/android/internal/telephony/Call;
 
@@ -76,7 +76,7 @@
 
     move-result v2
 
-    .line 1008
+    .line 1009
     .local v2, sub:I
     iget-object v3, p0, Lcom/android/internal/telephony/ExtCallManager$ExtCmHandler;->this$0:Lcom/android/internal/telephony/ExtCallManager;
 
@@ -99,7 +99,7 @@
 
     if-eqz v3, :cond_5e
 
-    .line 1010
+    .line 1011
     :cond_31
     :try_start_31
     const-string v3, "ExtCallManager"
@@ -128,7 +128,7 @@
 
     invoke-static {v3, v4}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1011
+    .line 1012
     invoke-virtual {v0}, Lcom/android/internal/telephony/Connection;->getCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v3
@@ -139,11 +139,11 @@
 
     goto :goto_8
 
-    .line 1012
+    .line 1013
     :catch_55
     move-exception v1
 
-    .line 1013
+    .line 1014
     .local v1, e:Lcom/android/internal/telephony/CallStateException;
     const-string v3, "ExtCallManager"
 
@@ -153,7 +153,7 @@
 
     goto :goto_8
 
-    .line 1016
+    .line 1017
     .end local v1           #e:Lcom/android/internal/telephony/CallStateException;
     :cond_5e
     iget-object v3, p0, Lcom/android/internal/telephony/ExtCallManager$ExtCmHandler;->this$0:Lcom/android/internal/telephony/ExtCallManager;
@@ -168,7 +168,7 @@
 
     goto :goto_8
 
-    .line 1003
+    .line 1004
     :sswitch_data_6a
     .sparse-switch
         0x66 -> :sswitch_9
