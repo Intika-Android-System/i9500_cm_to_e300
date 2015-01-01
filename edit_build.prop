@@ -1,6 +1,6 @@
 # Replace default text with below two lines.
-ro.build.description=jalteskt-user 4.4.2 KOT49H E300SKSUFNG7 release-keys
-ro.build.fingerprint=samsung/jalteskt/jalteskt:4.4.2/KOT49H/E300SKSUFNG7:user/release-keys
+ro.build.description=jalteskt-user 4.4.2 KOT49H E300SKSUFNJ1 release-keys
+ro.build.fingerprint=samsung/jalteskt/jalteskt:4.4.2/KOT49H/E300SKSUFNJ1:user/release-keys
 
 # You must add below line to fix RIL.
 ro.telephony.ril_class=SamsungExynos5KorRIL
