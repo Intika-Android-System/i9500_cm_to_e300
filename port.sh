@@ -23,8 +23,13 @@ cp -f telephony-common.jar ../port/system/framework/telephony-common.jar
 cd ../
 
 ## BUILD zip ## 
-gedit port/system/build.prop
-gedit edit_build.prop
+sed -i 's/GT-I9500/SHV-E300S/g' port/system/build.prop
+sed -i 's/i9500/e300s/g' port/system/build.prop
+sed -i 's/ja3gxx/jalteskt/g' port/system/build.prop
+sed -i 's/ja3g/jalteskt/g' port/system/build.prop
+echo ro.telephony.ril_class=SamsungExynos5KorRIL >> port/system/build.prop
+#gedit port/system/build.prop
+#gedit edit_build.prop
 echo "Almost done... Please modify build.prop And priv-app/Teleservice.apk(refer to README) to enable LTE setting and press ENTER."
 read
 cd port
